@@ -11,18 +11,27 @@
 <body>
     <div class="wrapper">
         <div class="quiz">
-            <h3 class="title">문제</h3>
-            <p class="bodyText">
-                영어 속담으로 "1일 1개씩 먹으면 의사 필요없다"<br>
-                라고하는 과일은 무엇일까요?
-            </p>
-            <input type="checkbox" class="bodyText lowerCase" value="해답"> 영어(소문자로)  답한다.<br>
-            답 : <input type="text" class="btn bodyText submitAnswer" value="">
-            <input type="submit" class="btn submitBtn" value="제출">
+            <h3 class="title">미술관 및 박물관의 링크</h3>
+            <select name="museumLink" id="museumLinkId" class="btn">
+                <option value="">대상을 선택하세요.</option>
+                <option value="http://www.sac.or.kr/">
+                    예술의 전당
+                </option>
+                <option value="https://www.vangoghmuseum.nl/">
+                    빈센트 반 고흐 뮤지엄
+                </option>
+                <option value="https://www.britishmuseum.org/">
+                    대영 박물관
+                </option>
+                <option value="https://www.musee-orangerie.fr/">
+                    오랑주리 미술관
+                </option>
+                <option value="http://www.louvre.fr">
+                    루브르 박물관
+                </option>
+            </select>
         </div>
         <div class="answerWarpper hide">
-            <p class="answer bodyText"></p>
-            <input type="button" class="btn afterBtn" value="되돌아가기">
         </div>
     </div>
     <script src="work.js"></script>

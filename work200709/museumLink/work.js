@@ -1,41 +1,37 @@
-const submitAnswer = document.querySelector(".submitAnswer"),
-    submitBtn = document.querySelector(".submitBtn"),
-    afterBtn = document.querySelector(".afterBtn"),
-    answer = document.querySelector(".answer"),
-    answerWarpper = document.querySelector(".answerWarpper"),
-    quiz = document.querySelector(".quiz"),
-    lowerCase = document.querySelector(".lowerCase");
+const museumLink = document.querySelector("#museumLinkId"),
+    answerWarpper = document.querySelector(".answerWarpper");
 
-function handleAfterBtnEvent(){
-    quiz.classList.remove("hide");
-    answerWarpper.classList.add("hide");
-    submitAnswer.value = "";
-}
+let preAtagNum = 0;
+let choice = 0;
 
-function handleClickEvent(){
-    // 제출 버튼 클릭시 input박스의 value를 가져온다.
-    let getAnswer = submitAnswer.value;
-    
-    // 소문자로 답한다고 체크박스 클릭시 toLowerCase함수를 사용해
-    // 제출한 답을 소문자로 변환 후 getAnswer에 대입한다. 
-    if(lowerCase.checked == true){
-        getAnswer = getAnswer.toLowerCase();
+
+function paintLink(ev) {
+    const getPaintLink = ev.currentTarget;
+    const aTag = document.createElement("a");
+
+    // 이전 a 태그 삭제
+    if (!(preAtagNum == 0)) {
+        let node = document.getElementById(`aTagId${preAtagNum}`);
+        answerWarpper.removeChild(node);
     }
 
-    // getAnswer의 정답 여부를 확인 후 화면에 피드백을 출력한다.
-    if(getAnswer === "apple"){
-        answer.innerHTML = "정답입니다!";
-    } else {
-        answer.innerHTML = "오답입니다!";
-    }
+    // 삭제를 위한 번호 저장
+    preAtagNum = getPaintLink.selectedIndex;
+
+    // 새로운 a 태그 추가 및 조건 처리 
+    aTag.href = getPaintLink.value;
+    aTag.innerHTML = getPaintLink.value;
+    aTag.id = "aTagId" + getPaintLink.selectedIndex;
+    aTag.target = "_blank"
+    answerWarpper.appendChild(aTag);
 
     answerWarpper.classList.remove("hide");
-    quiz.classList.add("hide");
+
 }
 
 function init() {
-    submitBtn.addEventListener("click", handleClickEvent);
-    afterBtn.addEventListener("click", handleAfterBtnEvent);
+    museumLink.addEventListener("change", paintLink);
+
 }
 
 init();
