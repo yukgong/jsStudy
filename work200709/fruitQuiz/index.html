@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="quiz">
+            <h3 class="title">문제</h3>
+            <p class="bodyText">
+                영어 속담으로 "1일 1개씩 먹으면 의사 필요없다"<br>
+                라고하는 과일은 무엇일까요?
+            </p>
+            <input type="checkbox" class="bodyText lowerCase" value="해답"> 영어(소문자로)  답한다.<br>
+            답 : <input type="text" class="btn bodyText submitAnswer" value="">
+            <input type="submit" class="btn submitBtn" value="제출">
+        </div>
+        <div class="answerWarpper hide">
+            <p class="answer bodyText"></p>
+            <input type="button" class="btn afterBtn" value="되돌아가기">
+        </div>
+    </div>
+    <script src="work.js"></script>
+</body>
+
+</html>
