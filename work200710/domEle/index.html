@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<!-- root -->
+<html lang="en">
+
+<!-- html child node -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- html child node -->
+
+<body>
+    <!-- childNodes -->
+    <h3 id="intro">
+        h3 tag id intro
+    </h3>
+    <p id="demo">p tag id demo</p>
+    <button type="button" onclick="func()">버튼</button>
+
+    <script>
+        function func() {
+            let text = document.getElementById("intro").childNodes[0].nodeValue;
+            console.log(text);
+        }
+    </script>
+
+
+    <!-- childNodes -->
+    <select name="car" id="car">
+        <option>(1)Benz
+        <option>(3)BMW
+        <option>(5)Volvo
+    </select>
+
+    <button type="button" onclick="myfunc()">선택</button>
+
+    <script>
+        function myfunc() {
+            let carname = document.getElementById("car").childNodes;
+            console.log(carname[3].text);
+            console.log(carname);
+        }
+    </script>
+
+    <!-- appendChild(뒤에 추가), insertChild(앞에 추가) -->
+    <div id="div1">
+        <p id="p1">첫번째 p태그</p>
+        <p id="p2">두번째 p태그</p>
+    </div>
+
+    <button type="button" onclick="appendfunc()">뒤에 추가</button>
+    <button type="button" onclick="insertfunc()">앞에 추가</button>
+    <button type="button" onclick="deletefunc()">삭제</button>
+
+    <script>
+        function appendfunc() {
+            // document.createElement("태그명")로
+            // 새로운 태그를 추가할 수 있다.
+            let ptag = document.createElement("p"); // <p></p>
+            let textNode = document.createTextNode("새로운 태그"); // 문자열
+
+            ptag.appendChild(textNode); // <p>문자열</p>
+            let element = document.getElementById("div1");
+            element.appendChild(ptag);
+        }
+
+        function insertfunc() {
+            // document.createElement("태그명")로
+            // 새로운 태그를 추가할 수 있다.
+            let h3tag = document.createElement("h3"); // <p></p>
+            let textNode = document.createTextNode("새로운 태그");
+
+            h3tag.appendChild(textNode); // <p>문자열</p>
+
+            let element = document.getElementById("div1");
+            //  앞에다 추가할 경우, 어느 앞에다 추가할건지 지정해줘야함
+            let elementBefore = document.getElementById("p2");
+            element.insertBefore(h3tag, elementBefore);
+        }
+
+        function deletefunc() {
+            let element = document.getElementById("div1");
+            let removeEle = document.getElementById("p2");
+            element.removeChild(removeEle);
+        }
+    </script>
+
+    <!-- 
+        nodeList는 활용성이 높다.
+    -->
+    <p>Hello</p>
+    <p>World</p>
+    <p>I can do it</p>
+    <p>Never Change My Mind</p>
+    <button type="button" onclick="listFunc()">NodeList</button>
+
+    <script>
+        function listFunc() {
+            let nodeList = document.getElementsByTagName("p");
+            // alert(nodeList.length);
+
+            nodeList[3].innerHTML = "안녕하세요";
+
+            for (let i = 0; i < nodeList.length; i++) {
+                nodeList[i].style.backgroundColor = "#f2f4f6";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

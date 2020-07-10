@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- on blur : 포커스값이 이동했을 때 실행 -->
+    나이 ; <input type="text" , onblur="isRegNum()" size="10" maxlength="2">세<br>
+    <script>
+        function isRegNum() {
+            alert("on blur 실행");
+        }
+    </script>
+
+
+    <input type="text" onchange="isPostNum()" size="10" maxlength="2"><br>
+
+    <!-- on change -->
+    <script>
+        function isPostNum(obj) {
+            console.log(obj);
+            let str = obj.value;
+            if (str.match(/^0-9/g)) {
+                alert("숫자가 아닌 문자가 포함되어 있습니다.");
+            }
+        }
+    </script>
+
+    <!-- 
+        onkeydown : 대소문자를 구분하지 않는다.
+        onkeypress :  대소문자를 구분한다.
+    -->
+    <input type="text" name="title">
+    <script>
+        document.getElementsByName("title")[0].onkeypress = () => {
+            console.log("onkeypress kecode: " +
+                event.keyCode);
+        };
+    </script>
+
+    <!-- 
+        onMouseDown : 마우스 눌렀을 때
+        onMouseUp : 마우스를 눌렀다 땠을 때
+        onMouseOver : 마우스를 호버했을때
+        onMouseOut : 마우스가 나갔을 때
+     -->
+
+    <input id="mouseYap" type="image" src="images/san0.gif" value="얍" onmousedown="down()" onmouseup="up()" onmouseover="over()" onmouseout="out()">
+
+    <script>
+        obj = document.querySelector("#mouseYap");
+
+        function down() {
+            obj.src = "images/san1.gif";
+        }
+
+        function up() {
+            obj.src = "images/san0.gif";
+        }
+
+        function over() {
+            obj.src = "images/san2.gif";
+        }
+
+        function out() {
+            obj.src = "images/san0.gif";
+        }
+    </script>
+
+    <a href="#" onmouseover="document.box.src='images/surprise.gif'" onmouseout="document.box.src='images/box.gif'">
+        <img src="images/box.gif" alt="box" name="box">
+    </a>
+
+</body>
+
+</html>
