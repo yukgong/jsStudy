@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라면 타이머</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">라면 타이머</div>
+        <form action="" name="frm" class="frmSection">
+
+            <select id="selId" name="myChoice" class="btn selectBox">
+                <option value="180">시간을 선택해주세요</option>
+                <option value="300">5분</option>
+                <option value="180">3분</option>
+                <option value="150">2분 30초</option>
+                <option value="120">2분</option>
+                <option value="60">1분</option>
+                <option value="30">30초</option>
+            </select>
+            <input type="button" value="start" class="startBtn btn">
+        </form>
+        <span id="countdown" class="bodyText">time selected</span>
+        <input type="button" value="close" class="closeBtn btn">
+
+
+    </div>
+    <script src="timer.js"></script>
+</body>
+
+</html>
