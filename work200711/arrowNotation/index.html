@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const f1 = () => "hello!";
+        const f2 = name => `hello! ${name}`;
+        const f3 = (a, b) => a + b;
+        console.log(f1());
+        console.log(f2("kyunghyun.kang"));
+        console.log(f3(3, 5));
+
+        const o = {
+            name: 'julie',
+            greetBackwards: function() {
+                const getReverseName = () => {
+                    let nameBackwards = '';
+                    for (let i = this.name.length - 1; i >= 0; i--) {
+                        nameBackwards += this.name[i];
+                    }
+                    console.log(this.name);
+                    return nameBackwards;
+                };
+                return `${getReverseName()} si eman ym, olleH`;
+            },
+        };
+        console.log(o.greetBackwards());
+    </script>
+</body>
+
+</html>
